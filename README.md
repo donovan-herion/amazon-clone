@@ -6,11 +6,11 @@ This Amazon Clone is the first fully functional E-Commerce Store that I made wit
 
 - / = Homepage
 
-- /login = Sign(in/up) Page _Fully functional thanks to the firebase provided backend functionalities_
+- /login = Sign(in/up) Page | _Fully functional thanks to the firebase provided backend functionalities_
 
-- /checkout = Basket Page _Prices and number of items updates dynamically thanks to the context api_
+- /checkout = Basket Page | _Prices and number of items updates dynamically thanks to the context api_
 
-- /payment = Checkout Page _Integrated stripe payment functionality_
+- /payment = Checkout Page | _Integrated stripe payment functionality_
 
 - /orders = Previously ordered products recap
 

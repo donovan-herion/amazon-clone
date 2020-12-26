@@ -17,8 +17,11 @@ This Amazon Clone is the first fully functional E-Commerce Store that I made wit
 # Technologies I used
 
 **CSS - Responsive - BEM Convention**
+
 **React - contextAPI - useState/Effect - React Router**
+
 **Npm - Moment Axios Stripe material-ui currencyformat**
+
 **Firebase - hosting and functions for front and back end deployment**
 
 ![gif](https://media.giphy.com/media/l2QDSKSkhqITBLYBy/giphy.gif)

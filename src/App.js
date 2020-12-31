@@ -2,7 +2,12 @@ import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
 import { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import { auth } from "./firebase";
@@ -19,7 +24,7 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -42,7 +47,6 @@ function App() {
   return (
     <>
       <ToastContainer
-        // style={{ top: "5rem" }}
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -63,10 +67,15 @@ function App() {
             <Route path="/checkout">
               <Checkout />
             </Route>
+
             <Route path="/payment">
-              <Elements stripe={promise}>
-                <Payment />
-              </Elements>
+              {user ? (
+                <Elements stripe={promise}>
+                  <Payment />
+                </Elements>
+              ) : (
+                <Redirect to="/login" />
+              )}
             </Route>
             <Route path="/orders">
               <Orders />

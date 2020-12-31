@@ -27,17 +27,21 @@ function Orders() {
     }
   }, [user]);
 
-  return (
-    <div className="orders">
-      <h1>Your Orders</h1>
+  if (user) {
+    return (
+      <div className="orders">
+        <h1>Your Orders</h1>
 
-      <div className="orders__order">
-        {orders?.map((order) => (
-          <Order order={order} />
-        ))}
+        <div className="orders__order">
+          {orders?.map((order) => (
+            <Order order={order} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <div className="login__first">You are not logged in yet</div>;
+  }
 }
 
 export default Orders;

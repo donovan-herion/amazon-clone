@@ -6,6 +6,16 @@
   margin: 30px 0;
 }
 
+.login__first {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 50px 5%;
+  padding: 100px 20px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: white;
+}
+
 @media (max-width: 700px) {
   .orders {
     padding: 20px;

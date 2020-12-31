@@ -32,7 +32,7 @@
 
 @media (max-width: 1000px) {
   .subtotal {
-    margin-top: 50px;
+    margin: 40px 0;
     width: 70vw;
   }
 }

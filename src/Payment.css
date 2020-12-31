@@ -31,6 +31,23 @@
   flex: 0.8;
 }
 
+.payment__priceContainer {
+  padding: 20px 0;
+}
+
+.fake__card__number {
+  opacity: 0.2;
+  color: #111;
+  font-weight: 300;
+  padding: 20px 0;
+}
+
+.fake__card__number:hover {
+  opacity: 1;
+  /* color: rgb(17, 1, 112); */
+  /* font-weight: bold; */
+}
+
 .payment__details > form {
   max-width: 400px;
 }
@@ -49,4 +66,21 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+}
+
+@media (max-width: 700px) {
+  .payment__container > h1 {
+    padding: 30px;
+  }
+
+  .payment__section {
+    flex-direction: column;
+  }
+
+  .payment__title > h3 {
+    padding: 30px 0;
+  }
+  .payment__priceContainer {
+    padding: 20px 0;
+  }
 }

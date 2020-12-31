@@ -117,6 +117,7 @@ function Payment() {
                 image={item.image}
                 price={item.price}
                 rating={item.rating}
+                hideButton
               />
             ))}
           </div>
@@ -132,7 +133,9 @@ function Payment() {
 
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
-
+              <p className="fake__card__number">
+                ex: 42424242..4242...4242.4242 to fake payment
+              </p>
               <div className="payment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => <h3>Order Total: {value}</h3>}

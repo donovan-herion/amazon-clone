@@ -29,3 +29,19 @@
   font-size: 17px;
   font-weight: 600;
 }
+
+@media (max-width: 700px) {
+  .checkoutProduct__title {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .checkoutProduct__image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    padding: 10px 0;
+  }
+  .checkoutProduct__info {
+    padding: 20px 0;
+  }
+}

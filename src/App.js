@@ -11,6 +11,8 @@ import Payment from "./Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./Orders";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const promise = loadStripe(
   "pk_test_51I2KRqFfwhAfciU4o1WVxeq5ZJjSQT81tZdAwxvIbYbpqTSql3oLz9igbQW9GaMLOOEMuTqKYkKyxKHFVM52qH0Q00zCdyEtur"
@@ -38,30 +40,44 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="app">
-        <Header />
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/checkout">
-            <Checkout />
-          </Route>
-          <Route path="/payment">
-            <Elements stripe={promise}>
-              <Payment />
-            </Elements>
-          </Route>
-          <Route path="/orders">
-            <Orders />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <>
+      <ToastContainer
+        // style={{ top: "5rem" }}
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <Router>
+        <div className="app">
+          <Header />
+          <Switch>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/checkout">
+              <Checkout />
+            </Route>
+            <Route path="/payment">
+              <Elements stripe={promise}>
+                <Payment />
+              </Elements>
+            </Route>
+            <Route path="/orders">
+              <Orders />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </>
   );
 }
 

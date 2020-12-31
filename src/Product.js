@@ -1,12 +1,14 @@
 import React from "react";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
+import { toast } from "react-toastify";
 
 function Product({ id, title, price, image, rating }) {
   const [{ basket }, dispatch] = useStateValue();
 
-  console.log(basket);
   const addToBasket = () => {
+    console.log("add to basket was called");
+
     // dispatch item to datalayer
     dispatch({
       type: "ADD_TO_BASKET",
@@ -19,6 +21,20 @@ function Product({ id, title, price, image, rating }) {
       },
     });
   };
+
+  const notify = () => {
+    console.log("notified was called");
+    toast(`Item successfully added`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   return (
     <div className="product">
       <div className="product__info">
@@ -36,7 +52,14 @@ function Product({ id, title, price, image, rating }) {
         </div>
       </div>
       <img src={image} alt="" />
-      <button onClick={addToBasket}>Add to Basket</button>
+      <button
+        onClick={() => {
+          addToBasket();
+          notify();
+        }}
+      >
+        Add to Basket
+      </button>
     </div>
   );
 }

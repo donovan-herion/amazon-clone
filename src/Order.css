@@ -16,3 +16,13 @@
   font-weight: 500;
   text-align: right;
 }
+
+@media (max-width: 700px) {
+  .order__date {
+    padding-bottom: 30px;
+  }
+
+  .order__total {
+    padding-top: 30px;
+  }
+}

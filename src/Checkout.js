@@ -3,9 +3,35 @@ import "./Checkout.css";
 import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "./StateProvider";
 import Subtotal from "./Subtotal";
+import { useTransition, animated } from "react-spring";
 
 function Checkout() {
   const [{ basket }, dispatch] = useStateValue();
+
+  const windowWidth = window.innerWidth;
+
+  const transition = useTransition(basket, (product) => product.id, {
+    from: {
+      height: 0,
+      opacity: 0,
+      marginLeft: -100,
+      marginRight: 100,
+    },
+    enter: {
+      height: windowWidth > 700 ? 200 : 230,
+      opacity: 1,
+      marginLeft: 0,
+      marginRight: 0,
+    },
+    leave: {
+      margin: 0,
+      padding: 0,
+      height: 0,
+      overflow: "hidden",
+      opacity: 0,
+    },
+  });
+
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -16,8 +42,22 @@ function Checkout() {
 
         <div>
           <h2 className="checkout__title">Your Shopping Basket</h2>
+          {console.log("transition", transition)}
+          {transition.map(({ item, key, props }) => {
+            return (
+              <animated.div key={key} style={props} className="checkoutProduct">
+                <CheckoutProduct
+                  id={item.id}
+                  title={item.title}
+                  image={item.image}
+                  price={item.price}
+                  rating={item.rating}
+                />
+              </animated.div>
+            );
+          })}
 
-          {basket.map((item) => {
+          {/* {basket.map((item) => {
             return (
               <CheckoutProduct
                 id={item.id}
@@ -27,7 +67,7 @@ function Checkout() {
                 rating={item.rating}
               />
             );
-          })}
+          })} */}
         </div>
       </div>
 

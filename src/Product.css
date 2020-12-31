@@ -39,3 +39,21 @@
   height: 100px;
   margin-bottom: 15px;
 }
+
+.Toastify__toast-container {
+  top: 5rem !important;
+}
+
+.Toastify__toast {
+  padding-left: 25px !important;
+  color: #111 !important;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .Toastify__toast-container {
+    top: 5rem !important;
+    left: 40% !important;
+    width: 60% !important;
+  }
+}

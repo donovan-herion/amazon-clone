@@ -29,3 +29,10 @@
   background-color: #a88734 #9c7e31 #846a29;
   color: #111;
 }
+
+@media (max-width: 1000px) {
+  .subtotal {
+    margin-top: 50px;
+    width: 70vw;
+  }
+}

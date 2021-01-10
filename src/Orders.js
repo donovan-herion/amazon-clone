@@ -3,6 +3,7 @@ import { db } from "./firebase";
 import "./Orders.css";
 import { useStateValue } from "./StateProvider";
 import Order from "./Order";
+import { uuid } from "uuidv4";
 
 function Orders() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -14,9 +15,9 @@ function Orders() {
         .doc(user?.uid)
         .collection("orders")
         .orderBy("created", "desc")
-        .onSnapshot((snapshot) =>
+        .onSnapshot(snapshot =>
           setOrders(
-            snapshot.docs.map((doc) => ({
+            snapshot.docs.map(doc => ({
               id: doc.id,
               data: doc.data(),
             }))
@@ -33,8 +34,8 @@ function Orders() {
         <h1>Your Orders</h1>
 
         <div className="orders__order">
-          {orders?.map((order) => (
-            <Order order={order} />
+          {orders?.map(order => (
+            <Order key={uuid()} order={order} />
           ))}
         </div>
       </div>

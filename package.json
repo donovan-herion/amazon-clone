@@ -21,6 +21,7 @@
     "react-spring": "^8.0.27",
     "react-toastify": "^6.2.0",
     "stripe": "^8.129.0",
+    "uuidv4": "^6.2.6",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

@@ -4,13 +4,14 @@ import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "./StateProvider";
 import Subtotal from "./Subtotal";
 import { useTransition, animated } from "react-spring";
+import { uuid } from "uuidv4";
 
 function Checkout() {
   const [{ basket }, dispatch] = useStateValue();
 
   const windowWidth = window.innerWidth;
 
-  const transition = useTransition(basket, (product) => product.id, {
+  const transition = useTransition(basket, product => product.id, {
     from: {
       height: 0,
       opacity: 0,
@@ -30,6 +31,7 @@ function Checkout() {
       overflow: "hidden",
       opacity: 0,
     },
+    keys: basket.map((item, index) => index),
   });
 
   return (
@@ -43,10 +45,15 @@ function Checkout() {
         <div>
           <h2 className="checkout__title">Your Shopping Basket</h2>
           {console.log("transition", transition)}
-          {transition.map(({ item, key, props }) => {
+          {transition.map(({ item, i, props }) => {
             return (
-              <animated.div key={key} style={props} className="checkoutProduct">
+              <animated.div
+                key={uuid()}
+                style={props}
+                className="checkoutProduct"
+              >
                 <CheckoutProduct
+                  key={uuid()}
                   id={item.id}
                   title={item.title}
                   image={item.image}
@@ -56,18 +63,6 @@ function Checkout() {
               </animated.div>
             );
           })}
-
-          {/* {basket.map((item) => {
-            return (
-              <CheckoutProduct
-                id={item.id}
-                title={item.title}
-                image={item.image}
-                price={item.price}
-                rating={item.rating}
-              />
-            );
-          })} */}
         </div>
       </div>
 

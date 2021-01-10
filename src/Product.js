@@ -2,6 +2,7 @@ import React from "react";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
 import { toast } from "react-toastify";
+import { uuid } from "uuidv4";
 
 function Product({ id, title, price, image, rating }) {
   const [{ basket }, dispatch] = useStateValue();
@@ -36,7 +37,7 @@ function Product({ id, title, price, image, rating }) {
   };
 
   return (
-    <div className="product">
+    <div className="product" key={uuid()}>
       <div className="product__info">
         <p>{title}</p>
         <p className="product__price">

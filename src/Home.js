@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
+import { uuid } from "uuidv4";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
         />
         <div className="home__row">
           <Product
+            key={uuid()}
             id={0}
             title={
               "The Lean Startup: How Constant Innovation Creates Rapidly Successful Business Paperback | Best Seller"
@@ -24,6 +26,7 @@ function Home() {
             rating={5}
           />
           <Product
+            key={uuid()}
             id={1}
             title={
               "Plantronics Marque 2 M165 Bluetooth Headset Black | 4th Generation of the kind in history"
@@ -37,6 +40,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            key={uuid()}
             id={2}
             title={"Samsugn ACFG8GRKE9SUXXESS 49' Curved LED Gaming Monitor"}
             price={199.99}
@@ -46,6 +50,7 @@ function Home() {
             rating={4}
           />
           <Product
+            key={uuid()}
             id={3}
             title={
               "Amazon Echo (3rd Generation) | Smart speaker with Alexa, Chaorcoal fabric"
@@ -57,6 +62,7 @@ function Home() {
             rating={5}
           />
           <Product
+            key={uuid()}
             id={4}
             title={
               "New Apple iPad Pro (12.9 inch, Wi-Fi, 128GB) - Silver 4th Generation"
@@ -70,6 +76,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            key={uuid()}
             id={5}
             title={
               "Samsung Gaming Monitor 49' Full HD Screen - Super Ultra Wide definition 5120x1440"

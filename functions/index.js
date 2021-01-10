@@ -11,7 +11,7 @@ const stripe = require("stripe")(
 const app = express();
 
 // - Middlewares
-app.use(cors({ origin: true }));
+app.use(cors());
 app.use(express.json());
 
 // - API routes

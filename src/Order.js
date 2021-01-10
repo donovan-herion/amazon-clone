@@ -4,6 +4,7 @@ import moment from "moment";
 import CheckoutProduct from "./CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "./StateProvider";
+import { uuid } from "uuidv4";
 
 function Order({ order }) {
   return (
@@ -15,8 +16,9 @@ function Order({ order }) {
       <p className="order__id">
         <small>{order.id}</small>
       </p>
-      {order.data.basket?.map((item) => (
+      {order.data.basket?.map(item => (
         <CheckoutProduct
+          key={uuid()}
           id={item.id}
           title={item.title}
           image={item.image}
@@ -26,7 +28,7 @@ function Order({ order }) {
         />
       ))}
       <CurrencyFormat
-        renderText={(value) => (
+        renderText={value => (
           <h3 className="order__total">Order Total: {value}</h3>
         )}
         decimalScale={2}

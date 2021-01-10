@@ -1,4 +1,4 @@
-[Link to the E-Commerce Store](https://amaclone-673b4.web.app/)
+[Link to the E-Commerce Store](https://amaclone-8c301.web.app/)
 
 This Amazon Clone is the first fully functional E-Commerce Store that I made with React
 

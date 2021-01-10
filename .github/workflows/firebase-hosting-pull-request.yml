@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AMACLONE_673B4 }}'
-          projectId: amaclone-673b4
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AMACLONE_4E671 }}'
+          projectId: amaclone-4e671
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
